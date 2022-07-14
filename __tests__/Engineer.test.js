@@ -1,4 +1,4 @@
-const Engineer = require('../lib/Engineer');
+import Engineer from '../lib/Engineer';
 
 test('creates a engineer object', () => {
     const engineer = new Engineer('Bobby', 1, 'bob@nunya.com', 'Zaphod1977');

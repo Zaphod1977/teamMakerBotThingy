@@ -1,5 +1,5 @@
 function renderData(employees) {
-    var html = "<!DOCTYPE html><html lang = 'en' ><head><link rel='stylesheet' href='style.css'/><meta charset='UTF-8'/><title>My Team</title></head><body>"
+    var html = "<!DOCTYPE html><html lang = 'en' ><head><link rel='stylesheet' href='style.css'/><meta charset='UTF-8'/><meta name='viewport' content='width=device-width, initial-scale=1.0' /><title>My Team</title></head><body>"
     html += '<div><h1>MY TEAM</h1>'
     employees.forEach(card => {
         if (card.office){

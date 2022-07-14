@@ -18,7 +18,7 @@ function addEngineer() {
     var engineerQuestions = [...questions, engineerQuestion, exitQuestion]
     inquirer.prompt(engineerQuestions)
         .then((answers) => {
-            var engineer = new Engineer(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.gUser);
+            var engineer = new Engineer(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.gUser);
             employees.push(engineer);
             if (
                 answers.chooseNext === 'Add Engineer'
@@ -49,7 +49,7 @@ function addIntern() {
     var internQuestions = [...questions, internQuestion, exitQuestion]
     inquirer.prompt(internQuestions)
         .then((answers) => {
-            var intern = new Intern(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.school);
+            var intern = new Intern(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.school);
             employees.push(intern);
             if (
                 answers.chooseNext === 'Add Engineer'
@@ -81,6 +81,16 @@ const questions = [
         type: 'input',
         name: 'employeeName',
         message: "What is the team employee's name?"
+    },
+    {
+        type: 'list',
+        name: 'employeeTitle',
+        message: "What is the title of the employee?",
+        choices: [
+            'Manager',
+            'Engineer',
+            'Intern'
+        ]
     },
     {
         type: 'input',
@@ -140,7 +150,7 @@ function init() {
     var managerQuestions = [...questions, managerQuestion, exitQuestion]
     inquirer.prompt(managerQuestions)
         .then((answers) => {
-            var manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.office);
+            var manager = new Manager(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.office);
             employees.push(manager);
             if (
                 answers.chooseNext === 'Add Engineer'
