@@ -2,65 +2,69 @@
 import inquirer from "inquirer";
 import fs from "fs";
 
-//import classes here:
-import Manager from '../teamMakerBotThingy/lib/Manager'
-import Engineer from '../teamMakerBotThingy/lib/Engineer'
-import Intern from '../teamMakerBotThingy/lib/Intern'
+//import classes here
+import Manager from '../teamMakerBotThingy/lib/Manager.js'
+import Engineer from '../teamMakerBotThingy/lib/Engineer.js'
+import Intern from '../teamMakerBotThingy/lib/Intern.js'
 
-import renderData from '../teamMakerBotThingy/src/renderData'
+// data sent to renderData for html processing
+import renderData from '../teamMakerBotThingy/src/renderData.js'
+
+var employees = [];
+
+function addEngineer() {
+
+};
+function addIntern() {
+
+};
+
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
-        name: 'managerName',
-        message: "What is the team managers name?"
+        name: 'employeeName',
+        message: "What is the team employee's name?"
     },
     {
         type: 'input',
-        name: 'managerId',
-        message: "What is the manager's id?"
+        name: 'employeeId',
+        message: "What is the employee's id?"
     },
     {
         type: 'input',
-        name: 'managerEmail',
-        message: "What is the manager's email address?"
-    },
-    {
-        type: 'input',
-        name: 'office',
-        message: "What is the manager's office number?"
-    },
-    // {
-    //     type: 'list',
-    //     name: 'license',
-    //     message: "Select License",
-    //     choices: [
-    //         'Apache',
-    //         'Boost',
-    //         'BSD'
-    //     ]
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'contributing',
-    //     message: "Are there any contributors on this project?"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'tests',
-    //     message: "Do you have any tests for your application"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'github',
-    //     message: "Do you have a Github you'd like to add"
-    // }, 
-    // {
-    //     type: 'input',
-    //     name: 'email',
-    //     message: "Please include your email address."
-    // },
-];
+        name: 'employeeEmail',
+        message: "What is the employee's email address?"
+    }];
+
+const managerQuestion = {
+    type: 'input',
+    name: 'office',
+    message: "What is the manager's office number?"
+};
+
+const exitQuestion = {
+    type: 'list',
+    name: 'chooseNext',
+    message: "What would you like to do next?",
+    choices: [
+        'Add Engineer',
+        'Add Intern',
+        'Exit'
+    ]
+};
+
+const interQuestions = {
+    type: 'input',
+    name: 'school',
+    message: "What is the intern's school?"
+};
+
+const engineerQuestions = {
+    type: 'input',
+    name: 'gUser',
+    message: "What is the engineer's github username?"    
+}
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -76,14 +80,23 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
+    var managerQuestions
     inquirer.prompt(questions)
         .then((answers) => {
-            var manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.office);
-            var engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.gitusername);
-            var intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school);
-            console.log(manager);
+            var manager = {};
+            var engineer = {};
+            var intern = {};
+            if (answers.managerName) {
+                manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.office);
+            };
+            if (answers.engineerName) {
+                engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.gitusername);
+            };
+            if (answers.internName) {
+                intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school);
+            };
             var data = renderData(manager, engineer, intern);
-            writeToFile("dist/index.html", data)
+            writeToFile("dist/index.html", data);
         })
         .catch((error) => {
             if (error.isTtyError) {

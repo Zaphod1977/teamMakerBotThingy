@@ -1,5 +1,5 @@
 function renderData(manager, engineer, intern) {
-    console.log(manager.name);
+    console.log("this is the output" + " " + (manager.name))
     return "<p>" + manager.name + "</p>"
 }
 
