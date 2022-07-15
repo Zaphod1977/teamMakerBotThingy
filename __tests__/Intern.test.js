@@ -1,4 +1,4 @@
-import Intern from '../lib/Intern';
+var Intern = require('../lib/Intern.js');
 
 test('creates a intern object', () => {
     const intern = new Intern('Bobby', 1, 'bob@nunya.com', 'WashU');

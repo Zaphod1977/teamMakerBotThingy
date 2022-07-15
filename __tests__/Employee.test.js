@@ -1,4 +1,4 @@
-import Employee from '../lib/Employee';
+var Employee = require('../lib/Employee.js');
 
 test('creates a employee object', () => {
     const employee = new Employee('Bobby', 1, 'bob@nunya.com', 'manager');

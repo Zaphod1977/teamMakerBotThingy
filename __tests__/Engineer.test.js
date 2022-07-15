@@ -1,4 +1,4 @@
-import Engineer from '../lib/Engineer';
+var Engineer = require('../lib/Engineer.js');
 
 test('creates a engineer object', () => {
     const engineer = new Engineer('Bobby', 1, 'bob@nunya.com', 'Zaphod1977');
