@@ -12,7 +12,6 @@ import renderData from '../teamMakerBotThingy/src/renderData.js'
 
 //establish employee variable 
 var employees = [];
-console.log(employees);
 
 //promt user for engineer specific question
 function addEngineer() {
@@ -21,7 +20,6 @@ function addEngineer() {
         .then((answers) => {
             var engineer = new Engineer(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.gUser);
             employees.push(engineer);
-            console.log(engineer);
             if (
                 answers.chooseNext === 'Add Engineer'
             ) {
@@ -53,7 +51,6 @@ function addIntern() {
         .then((answers) => {
             var intern = new Intern(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.school);
             employees.push(intern);
-            console.log(intern);
             if (
                 answers.chooseNext === 'Add Engineer'
             ) {
@@ -65,8 +62,8 @@ function addIntern() {
             } else if (
                 answers.chooseNext === 'Exit'
             ) {
-                var data = renderData(employees);
-                writeToFile("dist/index.html", data);
+                var data2 = renderData(employees);
+                writeToFile("dist/index.html", data2);
             }
         })
         .catch((error) => {
@@ -155,7 +152,6 @@ function init() {
         .then((answers) => {
             var manager = new Manager(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.office);
             employees.push(manager)
-            console.log(manager);
             if (
                 answers.chooseNext === 'Add Engineer'
             ) {

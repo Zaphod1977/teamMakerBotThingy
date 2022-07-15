@@ -10,12 +10,14 @@ body {
     /* width: 100%; */
 }
 
+.card-items {
+    display: flex;
+}
+
 .cards {
-    flex: wrap;
-    flex-direction: column;
     width: 30%;
     background-color: lightgray;
-    margin: 0%;
+    margin: 30px;
     border-radius: 3px;
     box-shadow: 5px 10px 8px #888888;
 }
@@ -33,6 +35,7 @@ body {
 }
 
 p {
+    font-size: .75em;
     background-color: aliceblue;
     padding: 5%;
     box-shadow: 20px;
