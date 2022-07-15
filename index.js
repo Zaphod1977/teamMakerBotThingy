@@ -13,68 +13,6 @@ import renderData from '../teamMakerBotThingy/src/renderData.js'
 //establish employee variable 
 var employees = [];
 
-//promt user for engineer specific question
-function addEngineer() {
-    var engineerQuestions = [...questions, engineerQuestion, exitQuestion]
-    inquirer.prompt(engineerQuestions)
-        .then((answers) => {
-            var engineer = new Engineer(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.gUser);
-            employees.push(engineer);
-            if (
-                answers.chooseNext === 'Add Engineer'
-            ) {
-                addEngineer();
-            } else if (
-                answers.chooseNext === 'Add Intern'
-            ) {
-                addIntern();
-            } else if (
-                answers.chooseNext === 'Exit'
-            ) {
-                var data = renderData(employees);
-                writeToFile("dist/index.html", data);
-            }
-        })
-        .catch((error) => {
-            if (error.isTtyError) {
-                // Prompt couldn't be rendered in the current environment
-            } else {
-                // Something else went wrong
-            }
-        });
-};
-
-//promt user for intern specific question
-function addIntern() {
-    var internQuestions = [...questions, internQuestion, exitQuestion]
-    inquirer.prompt(internQuestions)
-        .then((answers) => {
-            var intern = new Intern(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.school);
-            employees.push(intern);
-            if (
-                answers.chooseNext === 'Add Engineer'
-            ) {
-                addEngineer();
-            } else if (
-                answers.chooseNext === 'Add Intern'
-            ) {
-                addIntern();
-            } else if (
-                answers.chooseNext === 'Exit'
-            ) {
-                var data2 = renderData(employees);
-                writeToFile("dist/index.html", data2);
-            }
-        })
-        .catch((error) => {
-            if (error.isTtyError) {
-                // Prompt couldn't be rendered in the current environment
-            } else {
-                // Something else went wrong
-            }
-        });
-};
-
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -175,6 +113,68 @@ function init() {
             }
         });
 }
+
+//promt user for engineer specific question
+function addEngineer() {
+    var engineerQuestions = [...questions, engineerQuestion, exitQuestion]
+    inquirer.prompt(engineerQuestions)
+        .then((answers) => {
+            var engineer = new Engineer(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.gUser);
+            employees.push(engineer);
+            if (
+                answers.chooseNext === 'Add Engineer'
+            ) {
+                addEngineer();
+            } else if (
+                answers.chooseNext === 'Add Intern'
+            ) {
+                addIntern();
+            } else if (
+                answers.chooseNext === 'Exit'
+            ) {
+                var data = renderData(employees);
+                writeToFile("dist/index.html", data);
+            }
+        })
+        .catch((error) => {
+            if (error.isTtyError) {
+                // Prompt couldn't be rendered in the current environment
+            } else {
+                // Something else went wrong
+            }
+        });
+};
+
+//promt user for intern specific question
+function addIntern() {
+    var internQuestions = [...questions, internQuestion, exitQuestion]
+    inquirer.prompt(internQuestions)
+        .then((answers) => {
+            var intern = new Intern(answers.employeeName, answers.employeeTitle, answers.employeeId, answers.employeeEmail, answers.school);
+            employees.push(intern);
+            if (
+                answers.chooseNext === 'Add Engineer'
+            ) {
+                addEngineer();
+            } else if (
+                answers.chooseNext === 'Add Intern'
+            ) {
+                addIntern();
+            } else if (
+                answers.chooseNext === 'Exit'
+            ) {
+                var data2 = renderData(employees);
+                writeToFile("dist/index.html", data2);
+            }
+        })
+        .catch((error) => {
+            if (error.isTtyError) {
+                // Prompt couldn't be rendered in the current environment
+            } else {
+                // Something else went wrong
+            }
+        });
+};
 
 // Function call to initialize app
 init();

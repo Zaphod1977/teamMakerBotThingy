@@ -3,6 +3,7 @@ body {
 }
 
 .banner {
+    margin: -10px -15px 0 -15px;
     background-color: #ff6961;
     text-align: center;
     height: 3em;
@@ -12,10 +13,12 @@ body {
 
 .card-items {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cards {
-    width: 30%;
+    width: 25%;
     background-color: lightgray;
     margin: 30px;
     border-radius: 3px;

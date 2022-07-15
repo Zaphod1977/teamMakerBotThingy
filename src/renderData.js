@@ -1,6 +1,6 @@
 function renderData(employees) {
     var html = "<!DOCTYPE html><html lang = 'en' ><head><link rel='stylesheet' href='style.css'/><meta charset='UTF-8'/><meta name='viewport' content='width=device-width, initial-scale=1.0' /><title>My Team</title></head><body>"
-    html += '<h1 class="banner">MY TEAM</h1><div class="cards">'
+    html += '<h1 class="banner">MY TEAM</h1><div class="card-items">'
     employees.forEach(card => {
         if (card.office){
             html += renderManager(card)
@@ -15,15 +15,15 @@ function renderData(employees) {
 }
 
 function renderManager(manager) {
-    return '<div class="upper"><h2>' + manager.name + '</h2><h2>' + manager.title + '</h2></div><div class="lower"><p>' +  "ID: " + manager.id + '</p><p>' + "Email: " + manager.email + '</p><p>' +  "Office Number: " + manager.office + '</p></div>'
+    return '<div class="cards"><div class="upper"><h2>' + manager.name + '</h2><h2>' + manager.title + '</h2></div><div class="lower"><p>' +  "ID: " + manager.id + '</p><p>' + "Email: " + manager.email + '</p><p>' +  "Office Number: " + manager.office + '</p></div></div>'
 }
 
 function renderIntern(intern) {
-    return '<div class="upper"><h2>' + intern.name + '</h2><h2>' +  intern.title + '</h2></div><div class="lower"><p>' + "ID: " + intern.id + '</p><p>' +  "Email: " + intern.email + '</p><p>' + "School: " + intern.school + '</p></div>'
+    return '<div class="cards"><div class="upper"><h2>' + intern.name + '</h2><h2>' +  intern.title + '</h2></div><div class="lower"><p>' + "ID: " + intern.id + '</p><p>' +  "Email: " + intern.email + '</p><p>' + "School: " + intern.school + '</p></div></div>'
 }
 
 function renderEngineer(engineer) {
-    return '<div class="upper"><h2>' + engineer.name + '</h2><h2>' + engineer.title + '</h2></div><div class="lower"><p>' +  "ID: " + engineer.id + '</p><p>' + "Email: " + engineer.email + '</p><p>' + "GitHub: " + engineer.gitUsername + '</p></div>'
+    return '<div class="cards"><div class="upper"><h2>' + engineer.name + '</h2><h2>' + engineer.title + '</h2></div><div class="lower"><p>' +  "ID: " + engineer.id + '</p><p>' + "Email: " + engineer.email + '</p><p>' + "GitHub: " + engineer.gitUsername + '</p></div></div>'
 }
 
 export default renderData;
