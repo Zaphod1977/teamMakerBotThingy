@@ -1,4 +1,4 @@
-import Manager from '../lib/manager';
+import Manager from '../lib/Manager';
 
 test('creates a manager object', () => {
     const manager = new Manager('Bobby', 1, 'bob@nunya.com', '42');
