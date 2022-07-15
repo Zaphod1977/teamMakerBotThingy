@@ -1,6 +1,6 @@
 function renderData(employees) {
     var html = "<!DOCTYPE html><html lang = 'en' ><head><link rel='stylesheet' href='style.css'/><meta charset='UTF-8'/><meta name='viewport' content='width=device-width, initial-scale=1.0' /><title>My Team</title></head><body>"
-    html += '<div><h1>MY TEAM</h1>'
+    html += '<h1 class="banner">MY TEAM</h1><div class="cards">'
     employees.forEach(card => {
         if (card.office){
             html += renderManager(card)
@@ -15,15 +15,15 @@ function renderData(employees) {
 }
 
 function renderManager(manager) {
-    return '<div><h2>' + manager.name + '</h2><p>' + manager.id + '<p><p>' + manager.email + '<p><p>' + manager.office + '<p></div>'
-}
+    return '<div class="upper"><h2>' + manager.name + '</h2><h2>' + manager.title + '</h2></div><div class="lower"><p>' +  "ID: " + manager.id + '</p><p>' + "Email: " + manager.email + '</p><p>' +  "Office Number: " + manager.office + '</p></div>'
+};
 
 function renderIntern(intern) {
-    return '<div><h2>' + intern.name + '</h2><p>' + intern.id + '<p><p>' + intern.email + '<p><p>' + intern.school + '<p></div>'
-}
+    return '<div class="upper"><h2>' + intern.name + '</h2><h2>' +  manager.title + '</h2></div><div class="lower"><p>' + "ID: " + intern.id + '</p><p>' +  "Email: " + intern.email + '</p><p>' + "School: " + intern.school + '</p></div>'
+};
 
 function renderEngineer(engineer) {
-    return '<div><h2>' + engineer.name + '</h2><p>' + engineer.id + '<p><p>' + engineer.email + '<p><p>' + engineer.gitUsername + '<p></div>'
-}
+    return '<div class="upper"><h2>' + engineer.name + '</h2><h2>' + engineer.title + '</h2></div><div class="lower"><p>' +  "ID: " + engineer.id + '</p><p>' + "Email: " + engineer.email + '</p><p>' + "GitHub: " + engineer.gitUsername + '</p></div>'
+};
 
 export default renderData;
