@@ -1,14 +1,14 @@
 // TODO: Include packages needed for this application
-import inquirer from "inquirer";
-import fs from "fs";
+const inquirer = require("inquirer");
+const fs = require("fs");
 
 //import classes here
-import Manager from '../teamMakerBotThingy/lib/Manager.js'
-import Engineer from '../teamMakerBotThingy/lib/Engineer.js'
-import Intern from '../teamMakerBotThingy/lib/Intern.js'
+const Manager = require ('../teamMakerBotThingy/lib/Manager.js');
+const Engineer = require ('../teamMakerBotThingy/lib/Engineer.js');
+const Intern = require ('../teamMakerBotThingy/lib/Intern.js');
 
 // data sent to renderData for html processing
-import renderData from '../teamMakerBotThingy/src/renderData.js'
+const renderData = require ('../teamMakerBotThingy/src/renderData.js');
 
 //establish employee variable 
 var employees = [];

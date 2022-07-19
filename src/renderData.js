@@ -26,4 +26,4 @@ function renderEngineer(engineer) {
     return '<div class="cards"><div class="upper"><h2>' + engineer.name + '</h2><h2>' + engineer.title + '</h2></div><div class="lower"><p>' +  "ID: " + engineer.id + '</p><p>' + "Email: " + engineer.email + '</p><p>' + "GitHub: " + engineer.gitUsername + '</p></div></div>'
 }
 
-export default renderData;
+module.exports = renderData;
